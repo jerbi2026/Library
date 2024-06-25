@@ -1,0 +1,158 @@
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<app-admin-navbar [image]="connected_manager.image" [name]="connected_manager.nom"></app-admin-navbar>
+
+<section class="allpage">
+    <h1 class="fancy">HEC LIBRARY</h1>
+    <section class="page-contain">
+        <a  class="data-card" (click)="open_abonne()">
+          <h3>{{nb_abonne}}</h3>
+          <h4>Abonnés existants</h4>
+           
+        </a>
+        <a  class="data-card" (click)="open_livres()">
+            <h3>{{nb_livres}}</h3>
+            <h4>LIVRES EXISTANTS</h4>
+             
+        </a> 
+        <a  class="data-card" (click)="open_livres()">
+            <h3>{{nb_genre}}</h3>
+            <h4>GENRES DE LIVRE</h4>
+             
+        </a>
+        <a  class="data-card" (click)="open_auteurs()">
+            <h3>{{nb_auteur}}</h3>
+            <h4>AUTEURS EXISTANTS</h4>
+             
+        </a>
+        <a  class="data-card" (click)="open_propositions()">
+            <h3>{{nb_proposition}}</h3>
+            <h4>NOMBRE DE PROPOSITIONS</h4>
+             
+        </a>
+        <a  class="data-card" (click)="open_reservation()">
+            <h3>{{nb_reservation}}</h3>
+            <h4>NOMBRE DE RESERVATIONS</h4>
+             
+        </a>
+    </section>
+    <h1 class="fancy">Best Sellers</h1>
+
+<section class="body" >
+
+
+    <section class="carousel">
+      
+      <div class="carousel__container" >
+        
+          <div class="carousel-item" *ngFor="let item of books " (click)="open_book(item)" >
+            <img
+              class="carousel-item__img"
+              src="{{item.book_image}}"
+              alt="auteur cover"
+            />
+            <div class="carousel-item__details">
+              <div class="controls">
+                <span class="fas fa-play-circle"  ></span>
+              </div>
+              <h6 class="carousel-item__details--subtitle">{{item.title}} </h6>
+            </div>
+          </div>
+        
+       
+        
+      </div>
+    </section>
+</section>
+<app-admin-calendrier></app-admin-calendrier>
+    <h1 class="fancy">Stats</h1>
+<section class="stats">
+    <div id="livre_per_genre" class="charts"  ></div>
+    <div id="livre_per_auteur" class="charts"  ></div>
+
+</section>
+<section class="stats">
+    <div id="livre_per_reservation" class="charts"  ></div>
+    <div id="reservation_per_genre" class="charts"  ></div>
+
+</section>
+<section class="stats">
+    <div id="proposition_per_user" class="charts"  ></div>
+   
+
+</section>
+
+   
+
+</section>
+<div class="dialog-box bg-white" id="dialog">
+    <img src="{{book_cover}}" alt="book cover">
+    <h2>{{book_title}}</h2>
+    <p>Auteur : {{book_author}}</p>
+    <p>Description : {{book_description}}</p>
+    <button class="continue-application" (click)="add_book()">
+        <div>
+            <div class="pencil"></div>
+            <div class="folder">
+                <div class="top">
+                    <svg viewBox="0 0 24 27">
+                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                    </svg>
+                </div>
+                <div class="paper"></div>
+            </div>
+        </div>
+        Ajouter au catalogue
+    </button>
+
+    <button aria-label="close" class="x" (click)="close_dialog()">❌</button>
+</div>
+
+
+
+<div class="dialog-box bg-white" id="dialog_add_livre">
+    <h2>Ajouter un livre</h2>
+    <p>Nombre de copies</p>
+    <div class="textInputWrapper">
+      <input  type="number" class="textInput" name="nb_copie" [(ngModel)]="livre_add.nb_copie">
+  </div>
+  <p>Prix</p>
+    <div class="textInputWrapper">
+      <input  type="number" class="textInput" name="Prix" [(ngModel)]="livre_add.prix">
+  </div>
+  <p>Genre</p>
+  <div class="textInputWrapper">
+    <input  type="text" class="textInput" name="genre" [(ngModel)]="livre_add.genre">
+    </div>
+  <p>Auteur</p>
+  <select name="auteur" id="auteur" class="form-control" [(ngModel)]="auteur_name">
+    <option value="{{item}}" *ngFor="let item of liste_auteurs">{{item}}</option>
+  </select>
+
+  <div class="dialog_btn">
+    <button class="continue-application" (click)="add_livre()" >
+        <div>
+            <div class="pencil"></div>
+            <div class="folder">
+                <div class="top">
+                    <svg viewBox="0 0 24 27">
+                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                    </svg>
+                </div>
+                <div class="paper"></div>
+            </div>
+        </div>
+        Ajouter livre
+    </button>
+
+  </div>
+
+    <button aria-label="close" class="x" (click)="close_dialog_add()">❌</button>
+  </div>
+  <div class="dialog-box bg-white" id="dialog_message">
+    <h2>{{title}}</h2>
+    <p>{{message}}</p>
+    <button aria-label="close" class="x" (click)="close_dialog_message()">❌</button>
+
+</div>

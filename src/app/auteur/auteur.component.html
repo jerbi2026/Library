@@ -1,0 +1,46 @@
+<app-sidebar
+[image]="connected_user.image"
+[name]="connected_user.nom"></app-sidebar>
+<body>
+    <app-navbar></app-navbar>
+    <div class="about-section" style=" background: url({{auteur.image}}) no-repeat left">
+        <div class="inner-container">
+          <h1>{{auteur.prenom}} {{auteur.nom}}</h1>
+          <p class="text">
+Nationalite : {{auteur.nationalite}}</p>
+            <h1>Biographie</h1>
+          <div class="skills">
+            
+            <span *ngFor="let item of livres" (click)="open_livre(item.id_livre)">{{item.titre}}</span>
+           
+          </div>
+        </div>
+      </div>
+
+      <section class="quotes">
+        <div class="ag-format-container">
+          <div class="ag-courses_box">
+            
+        
+            <div class="ag-courses_item" *ngFor="let item of quotes" >
+              <a  class="ag-courses-item_link" (click)="open_quote(item.id_quote)">
+                <div class="ag-courses-item_bg"></div>
+        
+                <div class="ag-courses-item_title quote_title">
+                 "{{item.quote}}"
+                </div>
+        
+               
+              </a>
+            </div>
+        
+          </div>
+        </div>
+      </section>
+    
+    
+    
+    
+
+      
+</body>

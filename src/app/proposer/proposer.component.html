@@ -1,0 +1,52 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+</head>
+<app-sidebar
+[image]="connected_user.image"
+[name]="connected_user.nom"></app-sidebar>
+<body>
+    
+    <div class="wrapper" style="background-image: url(assets/cover.png);">
+        
+        <div class="inner">
+            <div class="image-holder">
+                <img src="assets/logo_ihec.jpeg" alt="logo ihec">
+            </div>
+            <form >
+                <h3>Proposer un livre</h3>
+                
+               
+                <div class="form-wrapper">
+                    <input type="text" name="titre" placeholder="Titre" class="form-control" [(ngModel)]="proposition.titre">
+                    <i class="material-symbols-outlined">library_books</i>
+                </div>
+                <div class="form-wrapper">
+                    <i class="material-symbols-outlined">person</i>
+                    <input type="text" name="auteur" placeholder="Auteur" class="form-control" [(ngModel)]="proposition.auteur">
+                   
+                    
+                </div>
+                <div class="form-wrapper">
+                    <select name="genre"  class="form-control" [(ngModel)]="proposition.genre">
+                        <option value="" disabled selected>Genre</option>
+                        <option *ngFor="let item of genres" value="{{item}}">{{item}}</option>
+                        <option value="autre">Autre...</option>
+                     
+                    </select>
+                    <i class="material-symbols-outlined" style="font-size: 17px">genres</i>
+                </div>
+               
+                <button (click)="submit()">Submit
+                    <i class="material-symbols-outlined">check_circle</i>
+                 
+                </button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+<div class="dialog-box bg-white" id="dialog">
+    <h2>{{title}}</h2>
+    <p>{{message}}</p>
+    <button aria-label="close" class="x" (click)="close_dialog()">❌</button>
+</div>

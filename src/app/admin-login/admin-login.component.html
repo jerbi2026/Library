@@ -1,0 +1,35 @@
+<body>
+    <div class="container">
+        <div class="heading">Sign In</div>
+        <form class="form" >
+          <input
+            placeholder="E-mail"
+            id="email"
+            name="email"
+            type="email"
+            class="input"
+           [required]="true"
+            [(ngModel)]="login_request.email"
+          />
+          <input
+            placeholder="Password"
+            id="password"
+            name="password"
+            type="password"
+            class="input"
+            [required]="true"
+            [(ngModel)]="login_request.password"
+          />
+          <span class="forgot-password"><a>Forgot Password ?</a></span>
+          <input value="Sign In" type="submit" class="login-button" (click)="login()" />
+        </form>
+        
+        
+      </div>
+      
+</body>
+<div class="dialog-box bg-white" id="dialog">
+  <h2 id="title">{{this.dialog_title}}</h2>
+  <p id="message">{{this.dialog_message}}</p>
+  <button aria-label="close" class="x" (click)="close_dialog()">❌</button>
+</div>

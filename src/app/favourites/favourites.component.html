@@ -1,0 +1,45 @@
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<app-sidebar
+[image]="connected_user.image"
+[name]="connected_user.nom"></app-sidebar>
+<body>
+  <app-navbar></app-navbar>
+   <h1 class="fancy">Favoris</h1>
+    <section class="search_section">
+           
+        <form>
+            <input type="search"  name="Chercher Livre" required [(ngModel)]="titre" (input)="find_livre()">
+            <a (click)="find_livre()"><i class="fa fa-search"></i></a>
+            
+        </form>
+    
+    </section>
+     <section class="body">
+
+
+      <section class="carousel">
+        
+        <div class="carousel__container" >
+          <div class="carousel-item" *ngFor="let item of livres ">
+            <img
+              class="carousel-item__img"
+              src="{{item.image}}"
+              alt="book cover"
+            />
+            <div class="carousel-item__details">
+              <div class="controls">
+                <span class="fas fa-play-circle" (click)="open_livre(item.id_livre)"></span>
+                <span class="fas fa-minus-circle" (click)="AddToFavorites(item)"></span>
+              </div>
+              <h5 class="carousel-item__details--title">{{item.titre}}</h5>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+  </section>
+
+    
+</body>

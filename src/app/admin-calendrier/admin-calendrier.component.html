@@ -1,0 +1,17 @@
+<section class="allpage">
+    <h1 class="fancy">Calendar</h1>
+    <full-calendar [options]="calendarOptions" ></full-calendar>
+</section>
+
+<div class="dialog-box bg-white" id="dialog_res">
+    <h2>Reservation</h2>
+   <div class="res_details">
+    <img src="{{livre.image}}" class="img_book" alt="book cover">
+    <p>Livre : {{livre.titre}}</p>
+    <hr>
+    <img src="{{abonne.image}}" class="img_ab" alt="abonne cover" >
+    <p>Abonne : {{abonne.nom}} {{abonne.prenom}}</p>
+   </div>
+    
+    <button aria-label="close" class="x" (click)="close_dialog_res()">❌</button>
+</div>

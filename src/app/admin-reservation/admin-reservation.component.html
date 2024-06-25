@@ -1,0 +1,155 @@
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<app-admin-navbar [image]="connected_manager.image" [name]="connected_manager.nom"></app-admin-navbar>
+<section class="allpage">
+    <h1 class="fancy">Library</h1>
+<section class="page-contain">
+    <a  class="data-card">
+      <h3>{{nb_reservation}}</h3>
+      <h4>Nombre de reservations</h4>
+       
+    </a>
+</section>
+  
+<section class="search_section">
+            
+    <form>
+        <input type="search" class="input"  name="Chercher Auteur" [(ngModel)]="code" (input)="get_reservation_by_code()">
+        <a  (click)="get_reservation_by_code()"><i class="fa fa-search"></i></a>
+         
+    </form>
+</section>
+
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Code</th>
+            <th>ID Livre</th>
+            <th>Date de reservation</th>
+            <th>Date de retour</th>
+            <th>Statut</th>
+           <th></th>
+           <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of reservations">
+            <td>{{item.code}}</td>
+            <td (click)="open_livre(item.id_livre)" class="id_livre">{{item.id_livre}}</td>
+            <td>{{item.date_res}}</td>
+            <td>{{item.date_retour}}</td>
+            <td>{{ item.statut ? 'Valide' : 'Invalide' }}</td>
+            <td>
+                <button class="noselect button"  (click)="open_dialog_delete(item.code)"><span class="text">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+                
+            </td>
+            <td *ngIf="item.statut==false">
+                <button class="continue-application" (click)="open_dialog_verif_code(item)">
+                    <div>
+                        <div class="pencil"></div>
+                        <div class="folder">
+                            <div class="top">
+                                <svg viewBox="0 0 24 27">
+                                    <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                                </svg>
+                            </div>
+                            <div class="paper"></div>
+                        </div>
+                    </div>
+                    Valider reservation
+                </button>
+            </td>
+            
+        </tr>
+        
+        <tbody>
+    </table>
+</div>
+<div class="open_scanner" (click)="open_scanner()">
+    <button class="animated-button">
+        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+          ></path>
+        </svg>
+        <span class="text">{{button_text}}</span>
+        <span class="circle"></span>
+        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+          ></path>
+        </svg>
+      </button>
+
+</div>
+
+  
+
+<div class="qr_code" id="scanner" style="display: none;">
+    
+    <ngx-scanner-qrcode #action="scanner"></ngx-scanner-qrcode>
+    <p *ngIf="action.isLoading">⌛ Loading...</p>
+
+
+    <ul (click)="action.isStart ? action.stop() : action.start()">
+        <li style="--i:#80FF72;--j:#7EE8FA;">
+            <span class="icon">📹</span>
+            <span class="title">{{action.isStart ? 'Stop' : 'Start'}}</span>
+        </li>
+    </ul>
+
+</div>
+  
+
+
+<div class="dialog-box bg-white" id="dialog_delete">
+  <h2>Est ce que vous etes sure?🫵🫰</h2>
+  <div class="dialog_btns">
+    <button class="noselect button"  (click)="delete_reservation()"><span class="text">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+    <button class="btn btn-success" style="margin-left: 5%;" (click)="close_dialog_delete()">Annuler</button>
+  </div>
+
+</div>
+
+<div class="dialog-box bg-white" id="dialog_message">
+  <h2>{{title}}</h2>
+  <p>{{message}}</p>
+  <button aria-label="close" class="x" (click)="close_dialog_message()">❌</button>
+
+</div>
+
+
+<div class="dialog-box bg-white " id="dialog_verif_code">
+    <h2>Code (verifier votre boite mail): </h2>
+   <div class="textInputWrapper">
+      <input  type="text" class="textInput" name="code_verif" [(ngModel)]="verif_code">
+    </div>
+    <div class="code_dialog">
+        <button class="continue-application" (click)="validate_reservation()">
+        <div>
+            <div class="pencil"></div>
+            <div class="folder">
+                <div class="top">
+                    <svg viewBox="0 0 24 27">
+                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                    </svg>
+                </div>
+                <div class="paper"></div>
+            </div>
+        </div>
+        Valider
+    </button>
+
+    </div>
+    
+    <button aria-label="close" class="x" (click)="close_dialog_verif_code()">❌</button>
+  
+  </div>
+  
+
+
+
+

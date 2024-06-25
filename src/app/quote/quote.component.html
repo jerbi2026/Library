@@ -1,0 +1,21 @@
+<app-sidebar
+[image]="connected_user.image"
+[name]="connected_user.nom"></app-sidebar>
+
+<body>
+  
+    <div class="about-section" style=" background: url({{livre.image}}) no-repeat left">
+        <div class="inner-container">
+          <h1>Quote</h1>
+          <p class="text">
+"{{quote.quote}}"</p>
+
+          <div class="skills">
+            
+            <span (click)="open_auteur(auteur.id_auteur)">{{auteur.nom}} {{auteur.prenom}}</span>
+            <span (click)="open_livre(livre.id_livre)">{{livre.titre}}</span>
+            <span (click)="open_genre(livre.genre)">{{livre.genre}}</span>
+          </div>
+        </div>
+      </div>
+</body>

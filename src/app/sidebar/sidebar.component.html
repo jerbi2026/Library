@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="user-account">
+          <img src="{{image}}" alt="logo" />
+          <h2>{{name}}</h2>
+        </div>
+        <ul class="links">
+          <h4>Main Menu</h4>
+          <li>
+            <span class="material-symbols-outlined">dashboard</span>
+            <a (click)="open_main()">Main</a>
+          </li>
+          
+          <li>
+            <span class="material-symbols-outlined">favorite</span>
+            <a (click)="open_favourites()">Favorites</a>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">book_online</span>
+            <a (click)="open_reservations()">Reservations </a>
+          </li>
+          <hr />
+          <h4>For Us</h4>
+          <!--<li>
+            <span class="material-symbols-outlined">calendar_month</span>
+            <a routerLink="/calendrier">Calendrier</a>
+          </li>-->
+          <li>
+            <span class="material-symbols-outlined">description</span>
+            <a (click)="open_prop()">Proposer </a>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">forum</span>
+            <a>Blog </a>
+          </li>
+          
+    
+          
+          <hr />
+          <h4>Account</h4>
+          
+          <li>
+            <span class="material-symbols-outlined">notifications</span>
+            <a >notifications</a>
+          </li>
+
+          <li>
+            <span class="material-symbols-outlined">settings</span>
+            <a (click)="open_settings()">Settings</a>
+          </li>
+          <li class="logout">
+            <span class="material-symbols-outlined">logout</span>
+            <a (click)="open_dialog()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+
+  <div class="dialog-box bg-white" id="dialog_sidebar">
+    <h2>{{title}}</h2>
+  
+    <button class="button" id="Yes" (click)="delete_account()"><span>Yes</span></button>
+    <button class="button" id="No" style="margin-left: 2%;" (click)="keep_account()"><span>No</span></button>
+    <button aria-label="close" class="x" (click)="close_dialog()">❌</button>
+</div>

@@ -1,0 +1,22 @@
+<nav>
+    <ul>
+      <li (click)="open_main()"><a >Home</a></li>
+      <li (click)="open_favourites()"><a >Favourites</a></li>
+      <li (click)="open_reservations()"><a>Reservations</a></li>
+      <li (click)="open_main()">
+        <a >Livres</a>
+      </li>
+      <li>
+        <a>Genres</a>
+        <ul>
+          <li *ngFor="let item of genres" (click)="open_genre(item)"><a >{{item}}</a></li>
+        </ul>
+      </li>
+      <li (click)="open_prop()">
+        <a >Proposer</a>
+      </li>
+      <li (click)="open_settings()">
+        <a >Settings</a>
+      </li>
+    </ul>
+  </nav>

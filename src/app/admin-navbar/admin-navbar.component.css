@@ -1,0 +1,255 @@
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+h4 {
+    color:  #03045e;
+    font-weight: 600;
+    display: none;
+    margin-bottom: 10px;
+}
+
+hr {
+   border: 1px solid #03045e;
+    margin: 10px 8px;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10%;
+    z-index: 99999;
+    height: 100%;
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    backdrop-filter: blur(15px);
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: width 0.3s ease;
+}
+
+.sidebar .user-account {
+    display: flex;
+    align-items: center;
+    padding: 40px 10px 20px 10px;
+    color: #03045e;
+}
+
+.user-account img {
+    height: 45px;
+    border-radius: 50%;
+}
+
+.user-account h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: none;
+    margin-left: 15px;
+}
+
+.links {
+    list-style: none;
+    margin-top: 20px;
+    overflow-y: scroll;
+    height: calc(100% - 140px);
+}
+
+.links li {
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.links span {
+    padding: 12px 10px;
+
+}
+.links li a {
+    color: #03045e;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 20px;
+    white-space: nowrap;
+    display: none;
+}
+
+.links li:hover {
+    background: #fff;
+}
+
+.logout {
+    margin-top: 20px;
+}
+
+.links::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar:hover {
+    width: 260px;
+}
+
+.sidebar:hover .user-account h2 {
+    display: block;
+}
+
+.sidebar:hover .links li a {
+    display: block;
+    justify-content: flex-start;
+}
+
+.sidebar:hover h4 {
+    display: block;
+}
+
+.sidebar:hover hr {
+    border-color: transparent;
+}
+
+
+
+.dialog-box {
+    display: none;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem 3rem;
+    background: white;
+    width: 65%;
+    padding-top: 2rem;
+    border-radius: 20px;
+    border: 0;
+    box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+    animation: fadeIn 1s ease both;
+    z-index: 9999;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .dialog-box::backdrop {
+    animation: fadeIn 1s ease both;
+    background: rgb(255 255 255 / 40%);
+    z-index: 2;
+    backdrop-filter: blur(20px);
+  }
+  
+  .dialog-box .x {
+    filter: grayscale(1);
+    border: none;
+    background: none;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    transition: ease filter, transform 0.3s;
+    cursor: pointer;
+    transform-origin: center;
+  }
+  
+  .dialog-box .x:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+  }
+  
+  .dialog-box h2 {
+    color: #240046;
+    font-weight: 600;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    
+  }
+  
+  .dialog-box p {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    padding: 0.5rem 0;
+  }
+  
+  .dialog-box p a:visited {
+    color: rgb(var(--vs-primary));
+  }
+  
+  .dialog-box img{
+    height: 5%;
+    width: 5%;
+  }
+  
+  
+  .dialog-box div {
+    display: flex;
+    margin-top: 2%;
+    
+  }
+
+
+.button {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #03045e;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+   }
+   
+   .button::before,
+   .button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+   }
+   
+   .button::before {
+    left: -10px;
+    background: #240046;
+   }
+   
+   .button::after {
+    right: -10px;
+    background: #5a189a;
+   }
+   
+   .button:hover::before,
+   .button:hover::after {
+    width: 58%;
+   }
+   
+   .button:hover span {
+    color: #e0aaff;
+    transition: 0.3s;
+   }
+   
+   .button span {
+    color: #03045e;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+   }

@@ -1,0 +1,31 @@
+<body>
+    <div class="center">
+        <h1>Reset Password</h1>
+        <form>
+          <div class="inputbox" id="email_container">
+            <input type="email" required="required"  name="email" [(ngModel)]="email">
+            <span>Email</span>
+          </div>
+          <div class="inputbox" style="display: none;" id="code">
+            <input type="text" required="required"  name="code"   [(ngModel)]="code"/>
+            <span>Code</span>
+          </div>
+          <div class="inputbox" id="submit_mail">
+            <input type="button" value="submit" name="submit" (click)="verif_mail()" />
+          </div>
+          <div class="inputbox" id="code_submit" style="display:none;">
+            <input type="button" value="Vérifier Code" name="verif_code" (click)="verif_code()" />
+          </div>
+        </form>
+    </div>
+</body>
+<div class="dialog-box bg-white" id="code_envoye">
+  <h2>Code Envoyé 🫰✅</h2>
+  <p>Vérifier votre boite mail, on a envoyé un code</p>
+  <button aria-label="close" class="x" (click)="close_dialog_code()">❌</button>
+</div>
+<div class="dialog-box bg-white" id="dialog">
+  <h2>Error ⛔</h2>
+  <p>Votre mail n'existe pas dans notre BD</p>
+  <button aria-label="close" class="x" (click)="close_dialog()">❌</button>
+</div>

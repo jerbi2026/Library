@@ -1,0 +1,60 @@
+<app-sidebar
+[image]="connected_user.image"
+[name]="connected_user.nom"></app-sidebar>
+<body>
+    <app-navbar></app-navbar>
+    <h1 class="fancy">Reservations</h1>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Code</th>
+            <th>Livre</th>
+            <th>Date de reservation</th>
+            <th>Date de retour</th>
+            <th>Statut</th>
+           <th></th>
+           <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of reservations">
+            <td>{{item.code}}</td>
+            <td>{{item.livre}}</td>
+            <td>{{item.date_res}}</td>
+            <td>{{item.date_retour}}</td>
+            <td>{{item.statut}}</td>
+            <td *ngIf="item.statut=='Not Payed'">
+                <button class="noselect button"  (click)="open_dialog_delete(item.code)"><span class="text">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+                
+            </td>
+            <td *ngIf="item.statut=='Not Payed'">
+                <button class="btn" (click)="generate(item.code)">
+                    <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+                        <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                    </svg>
+                
+                    <span class="text">Generate</span>
+                </button>
+            </td>
+            
+        </tr>
+        
+        <tbody>
+    </table>
+</div>
+</body>
+<div class="dialog-box bg-white" id="dialog">
+    <h2>{{title}}</h2>
+    <p>{{message}}</p>
+    <button class="button" id="delete_btn" (click)="delete_reservation()"><span> Delete</span></button>
+    <button aria-label="close" class="x" (click)="close_dialog()">❌</button>
+</div>
+<div class="dialog-box bg-white" id="dialog_qr_code">
+    <h2>{{title}}</h2>
+    <img src="{{qr_code}}" alt="qr code">
+    
+    <button class="buttonDownload" (click)="download_qr_code()">Download</button>
+    
+    <button aria-label="close" class="x" (click)="close_dialog_qr_code()">❌</button>
+</div>

@@ -1,0 +1,155 @@
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<app-sidebar
+[image]="connected_user.image"
+[name]="connected_user.nom"></app-sidebar>
+
+<main > 
+  <app-navbar></app-navbar>
+  <section class="page-contain">
+    <a (click)="open_reservations()" class="data-card">
+      <h3>{{nb_reservation}}</h3>
+      <h4>Reservations</h4>
+      <span class="link-text">
+        View All
+        <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+  </svg>
+      </span>
+    </a>
+    
+    
+    <a  class="data-card" (click)="open_favourites()">
+      <h3>{{nb_favourites_book}}</h3>
+      <h4>Favourite book</h4>
+      <span class="link-text">
+        View Information
+        <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z" fill="#753BBD"/>
+  </svg>
+      </span>
+    </a>
+  </section>
+  <h1 class="fancy">Nos Livres</h1>
+    <section class="search_section">
+           
+        <form>
+            <input type="search"  name="Chercher Livre" required [(ngModel)]="titre" (input)="find_livre()">
+            <a (click)="find_livre()"><i class="fa fa-search"></i></a>
+            
+        </form>
+    
+    </section>
+    <section class="body" >
+
+
+      <section class="carousel">
+        
+        <div class="carousel__container" >
+          <div class="carousel-item" *ngFor="let item of livres " >
+            <img
+              class="carousel-item__img"
+              src="{{item.image}}"
+              alt="book cover"
+            />
+            <div class="carousel-item__details">
+              <div class="controls">
+                <span class="fas fa-play-circle" (click)="open_livre(item.id_livre)"></span>
+                <span class="fas fa-plus-circle" (click)="AddToFavorites(item)"></span>
+              </div>
+              <h5 class="carousel-item__details--title">{{item.titre}}</h5>
+            </div>
+          </div>
+         
+          
+        </div>
+      </section>
+  </section>
+  
+  <section class="quotes_section">
+    <h1 class="fancy">Quotes</h1>
+    <div class="ag-format-container">
+      <div class="ag-courses_box">
+        
+    
+        <div class="ag-courses_item" *ngFor="let item of quotes | paginate:{itemsPerPage:6 , currentPage:1};" >
+          <a  class="ag-courses-item_link" (click)="open_quote(item.id_quote)">
+            <div class="ag-courses-item_bg"></div>
+    
+            <div class="ag-courses-item_title quote_title">
+             "{{item.quote}}"
+            </div>
+    
+           
+          </a>
+        </div>
+    
+      </div>
+    </div>
+  </section>
+ 
+   
+    
+    
+      
+      <h1 class="fancy">Nos Auteurs</h1>
+      <section class="search_section">
+           
+        <form>
+            <input type="search"  name="Chercher Livre" required [(ngModel)]="name_auteur" (input)="find_auteur_name()" >
+            <a ><i class="fa fa-search"></i></a>
+            
+        </form>
+    
+    </section>
+    
+      
+  
+    <section class="auteurs">
+      <div class="profile" style="background: url({{item.image}}); background-size: cover;" *ngFor="let item of auteurs | paginate:{itemsPerPage:3 , currentPage:currentPage_auteur};" (click)="open_auteur(item.id_auteur)">
+        <div class="overlay">
+            <div class="about d-flex flex-column">
+                <h4>{{item.prenom}} {{item.nom}}</h4> <span>{{item.nationalite}}</span>
+            </div>
+            
+        </div>
+    </div>
+        
+       
+    </section>
+    <pagination-controls class="btn-toolbar" style="color: aliceblue;" (pageChange)="currentPage_auteur=$event"></pagination-controls>
+      
+      <h1 class="fancy">Genres</h1>
+      <section class="search_section">
+           
+        <form>
+            <input type="search"  name="Chercher Livre" required [(ngModel)]="genre" (input)="find_genre()">
+            <a (click)="find_genre()"><i class="fa fa-search"></i></a>
+            
+        </form>
+    
+    </section>
+   
+     
+      <div class="main-container" >
+        
+        <div class="cards">
+          <div class="card card-{{i+1}}" *ngFor="let item of genres; let i = index">
+            <div class="card__icon"><i class="fa fa-book" style="color: #ffff;"></i></div>
+            <p class="card__exit"><i class="fas fa-times"></i></p>
+            <h2 class="card__title">{{item}}</h2>
+            <p class="card__apply">
+              <a class="card__link" (click)="open_genre(item)">View books <i class="fas fa-arrow-right"></i></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    
+</main>
+
+<div class="dialog-box bg-white" id="dialog">
+  <h2>{{title}}</h2>
+  <p>{{message}}</p>
+  <button aria-label="close" class="x" (click)="close_dialog()">❌</button>
+</div>

@@ -1,0 +1,70 @@
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<app-admin-navbar [image]="connected_manager.image" [name]="connected_manager.nom"></app-admin-navbar>
+<section class="allpage">
+    <h1 class="fancy">Nos auteurs</h1>
+<section class="page-contain">
+    <a  class="data-card">
+      <h3>{{nb_auteurs}}</h3>
+      <h4>Auteurs existants</h4>
+       
+    </a>
+</section>
+  
+<section class="search_section">
+            
+    <form>
+        <input type="search"  name="Chercher Auteur" [(ngModel)]="name_auteur" (input)="find_auteur_name()" >
+        <a (input)="find_auteur_name()" ><i class="fa fa-search"></i></a>
+         
+    </form>
+</section>
+
+
+<section class="body" >
+
+
+    <section class="carousel">
+      
+      <div class="carousel__container" >
+        
+          <div class="carousel-item" *ngFor="let item of auteurs |  paginate:{itemsPerPage:21 , currentPage:p}; " (click)="open_auteur(item.id_auteur)">
+            <img
+              class="carousel-item__img"
+              src="{{item.image}}"
+              alt="auteur cover"
+            />
+            <div class="carousel-item__details">
+              <div class="controls">
+                <span class="fas fa-play-circle"  (click)="open_auteur(item.id_auteur)"></span>
+              </div>
+              <h5 class="carousel-item__details--title">{{item.prenom}}  {{item.nom}}</h5>
+            </div>
+          </div>
+        
+       
+        
+      </div>
+    </section>
+    <pagination-controls (pageChange)="p = $event" style="color: #141d54;"></pagination-controls>
+</section>
+
+
+<div class="ajouter">
+    <button class="continue-application" (click)="add_auteur()">
+        <div>
+            <div class="pencil"></div>
+            <div class="folder">
+                <div class="top">
+                    <svg viewBox="0 0 24 27">
+                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                    </svg>
+                </div>
+                <div class="paper"></div>
+            </div>
+        </div>
+        Ajouter nouvel auteur
+    </button>
+</div>
+</section>

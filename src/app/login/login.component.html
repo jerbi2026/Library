@@ -1,0 +1,77 @@
+<body>
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Email</label>
+                        <input id="user5454" type="email" class="input" name="email_login" [(ngModel)]="login_request.email">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass488" type="password" class="input" data-type="password" name="password" [(ngModel)]="login_request.password">
+                    </div>
+                    
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign In" (click)="login()">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Go back" (click)="go_back()">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign as admin" (click)="open_admin()">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a routerLink="/verif_email">Forgot Password?</a>
+                    </div>
+                </div>
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="user" class="label">First Name</label>
+                        <input id="user2" type="text" class="input" name="nom" [(ngModel)]="new_abonne.nom">
+                    </div>
+                    <div class="group">
+                        <label for="user" class="label">Last Name</label>
+                        <input id="user3" type="text" class="input" name="prenom" [(ngModel)]="new_abonne.prenom">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass2" type="password" class="input" data-type="password" name="pass1" [(ngModel)]="new_abonne.mot_de_passe">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input id="pass3" type="password" class="input" data-type="password" name="pass2" [(ngModel)]="confirm_pass">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email Address</label>
+                        <input id="pass4" type="text" class="input" name="adresse_mail" [(ngModel)]="new_abonne.adresse_mail">
+                    </div>
+                    <div class="group">
+                        <label for="user" class="label">Location</label>
+                        <input id="user5" type="text" class="input" name="Address" [(ngModel)]="new_abonne.adresse">
+                    </div>
+                    <div class="group">
+                        <label for="user" class="label">Telephone Number</label>
+                        <input id="user6" type="number" class="input" name="Telephone" [(ngModel)]="new_abonne.numero">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up" name="sign-up" (click)="sign_up()">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Go back" (click)="go_back()">
+                    </div>
+                    <div class="hr"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<div class="dialog-box bg-white" id="dialog">
+    <h2 id="title">{{this.dialog_title}}</h2>
+    <p id="message">{{this.dialog_message}}</p>
+    <button aria-label="close" class="x" (click)="close_dialog()">❌</button>
+</div>

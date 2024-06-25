@@ -1,0 +1,484 @@
+<head>
+             
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700&display=swap" rel="stylesheet">
+        
+
+
+</head>
+    
+    <body>
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/logo_ihec.jpeg"  alt="logo ihec" style="width: 20%;height: 20%; margin-right: 2%;" >
+                        <span>HEC</span>library
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-3">
+                        <a href="#" class="btn custom-btn custom-border-btn btn-naira btn-inverted">
+                            <i class="btn-icon bi-cloud-download"></i>
+                            <span>Download</span>
+                        </a>
+                    </div>
+    
+                    <button class="navbar-toggler collapsed" (click)="show_nav()" id="nav_btn"  type="button" >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse " id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto me-lg-4">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="/home#section_1">Home</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="/home#section_2">AboutUs</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="/home#section_3">Author</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="/home#section_4">Reviews</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="/home#section_5">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" routerLink="/login">SignIn <i class="bi bi-box-arrow-in-right"></i></a>
+                            </li>
+                           
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a  class="btn custom-btn custom-border-btn btn-naira btn-inverted" (click)="showWidget()">
+                                <i class="btn-icon bi-cloud-download"></i>
+                                <span>Download</span>
+                            </a>
+                            <div id="elfsight-widget" class="elfsight-app-b0b79b2a-428c-4cc3-8767-6800def5727e" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12 mb-5 pb-5 pb-lg-0 mb-lg-0">
+
+                            <h6>Facilitons votre gestion</h6>
+
+                            <h1 class="text-white mb-4">"Explorez, Empruntez, Enrichissez avec HEClibrary!"</h1>
+
+                            <a href="/home#section_2" class="btn custom-btn smoothscroll me-3">Explorer plus</a>
+
+                            <a href="/home#section_3" class="link link--kale smoothscroll">Rencontrer l'auteur</a>
+                        </div>
+
+                        <div class="hero-image-wrap col-lg-6 col-12 mt-3 mt-lg-0">
+                            <img src="assets/hec_cover.png" class="hero-image img-fluid" alt="education online books">
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="featured-section">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12">
+                            <div class="avatar-group d-flex flex-wrap align-items-center">
+                                <img src="assets/avatar/aziz.jpg" class="img-fluid avatar-image" alt="">
+
+                                <img src="assets/avatar/houssem.jpg" class="img-fluid avatar-image avatar-image-left" alt="">
+
+                                <img src="assets/avatar/jerbi.jpg" class="img-fluid avatar-image avatar-image-left" alt="">
+
+                                <img src="assets/avatar/rami.jpg" class="img-fluid avatar-image avatar-image-left" alt="">
+
+                                <div class="reviews-group mt-3 mt-lg-0">
+                                    <strong>4.5</strong>
+
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star-fill"></i>
+                                    <i class="bi-star"></i>
+
+                                    <small class="ms-3">2,564 avis</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="py-lg-5"></section>
+
+
+            <section class="book-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <img src="assets/HEC.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="book-section-info">
+                                <h6>Moderne &amp; Créatif</h6>
+
+
+                                <h2 class="mb-4">About HEClibrary</h2>
+
+                                <p>Notre projet, HEClibrary, est une plateforme web moderne et intuitive dédiée à la gestion et à la location de livres. Conçue pour les étudiants et le personnel de HEC, cette application offre une expérience utilisateur fluide et efficace. En combinant des fonctionnalités de recherche 
+                                    avancées, de réservation en ligne et de gestion des emprunts, HEClibrary simplifie le processus de recherche et de
+                                     gestion des livres, permettant à chacun de se concentrer sur l'essentiel : l'apprentissage et la découverte</p>
+
+            
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center">
+                            <h6>Qu'y a-t-il à l'intérieur ?</h6>
+
+                            <h2 class="mb-5">Aperçu en un coup d'œil</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <nav id="navbar-example3" class="h-100 flex-column align-items-stretch">
+                                <nav class="nav nav-pills flex-column">
+                                    <a class="nav-link smoothscroll" href="/home#item-1">Introduction</a>
+
+                                    <a class="nav-link smoothscroll" href="/home#item-2">Chapitre 1: <strong>Récupérez votre temps</strong></a>
+
+                                    <a class="nav-link smoothscroll" href="/home#item-3">Chapitre 2: <strong>Travaillez moins, faites-en plus</strong></a>
+
+                                    <a class="nav-link smoothscroll" href="/home#item-4">Chapitre 3: <strong>Retour Responsable</strong></a>
+
+                                    <a class="nav-link smoothscroll" href="/home#item-5">Chapitre 4: <strong>Explorez et Évadez-vous</strong></a>
+                                </nav>
+                            </nav>
+                        </div>
+
+                        <div class="col-lg-8 col-12">
+                            <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+                                <div class="scrollspy-example-item" id="item-1">
+                                    <h5>Présentation de HEClibrary</h5>
+
+                                    <p>HEClibrary : Votre bibliothèque en ligne, simplifiant la recherche, la réservation et la gestion des livres.</p>
+
+                                    <p><strong>Ce que nous offrons ?</strong> HEClibrary propose une expérience de gestion des livres simplifiée pour le public, de la recherche à la réservation en ligne.</p>
+
+                                    <blockquote class="blockquote">Explorez, Empruntez, Enrichissez avec HEClibrary</blockquote>
+
+                                    <p>Découvrez une nouvelle façon pratique et efficace de gérer vos livres avec HEClibrary. Simplifiez votre recherche, réservez vos livres en ligne et gagnez du temps pour ce qui compte vraiment : la lecture.</p>
+                                </div>
+
+                                <div class="scrollspy-example-item" id="item-2">
+                                    <h5>Récupérez votre temp</h5>
+
+                                    <p>Découvrez notre interface de réservation intuitive et efficace, conçue pour vous faire gagner du temps. Grâce à HEClibrary, récupérez facilement vos livres réservés et profitez d'une expérience 
+                                        de gestion des emprunts fluide et pratique.</p>
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-12 mb-3">
+                                            <img src="assets/abonne.png" class="scrollspy-example-item-image img-fluid" alt="">
+                                        </div>
+
+                                        <div class="col-lg-6 col-12 mb-3">
+                                            <img src="assets/abonne2.png" class="scrollspy-example-item-image img-fluid" alt="">
+                                        </div>
+                                    </div>
+
+                                    <p>Ne perdez plus une minute ! Simplifiez la gestion de vos emprunts avec notre interface de réservation conviviale. Réservez dès maintenant et récupérez vos livres en toute 
+                                        simplicité grâce à HEClibrary.</p>
+                                </div>
+
+                                <div class="scrollspy-example-item" id="item-3">
+                                    <h5>Travaillez moins, accomplissez davantage</h5>
+
+                                    <p>Découvrez notre interface de gestion innovante conçue pour les managers modernes. Simplifiez vos tâches quotidiennes, gérez efficacement vos équipes et optimisez vos résultats. Avec HEClibrary, travaillez moins et accomplissez davantage pour atteindre
+                                         vos objectifs professionnels en toute facilité.</p>
+
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6 col-12">
+                                            <img src="assets/HEC2.png" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="col-lg-6 col-12">
+                                            <p>Interface Moderne </p>
+
+                                            <p><strong>Boostez votre productivité ! Notre interface de gestion simplifiée vous permet de faire plus en moins de temps. Avec HEClibrary, optimisez vos tâches de gestion et atteignez vos
+                                                 objectifs en un clin d'œil.</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="scrollspy-example-item" id="item-4">
+                                    <h5>Retour Responsable</h5>
+
+                                    <p>Cher abonné, nous vous remercions pour votre confiance en HEClibrary. Pour garantir que chacun puisse profiter pleinement de notre collection de livres, nous vous encourageons à retourner vos emprunts dans les délais prévus. Cela permet non seulement d'assurer l'accès aux livres pour tous, mais aussi de maintenir un environnement de lecture agréable pour chacun. Nous comprenons que parfois, des imprévus peuvent survenir, c'est pourquoi notre équipe est là pour vous accompagner et trouver des solutions adaptées à vos besoins. Votre coopération et votre compréhension sont essentielles pour garantir
+                                         une expérience de lecture harmonieuse pour tous. Merci de votre collaboration !</p>
+
+                                    <img src="assets/HEC affiche.png" class="scrollspy-example-item-image img-fluid mb-3" alt="">
+
+                                    
+                                </div>
+
+                                <div class="scrollspy-example-item" id="item-5">
+                                    <h5>Explorez et Évadez-vous</h5>
+
+                                    <p>Découvrez de nouveaux horizons à travers la lecture ! Plongez dans des univers captivants, enrichissez votre savoir et laissez-vous emporter par l'imaginaire. Les livres sont des portes ouvertes vers l'évasion, la connaissance et la découverte de soi. Que vous soyez passionné de fiction, d'histoire, de science ou de développement personnel, laissez-vous séduire par le pouvoir des mots et explorez des mondes infinis
+                                         à travers les pages d'un livre</p>
+
+                                    <blockquote class="blockquote">Un livre est une fenêtre par laquelle on s'évade</blockquote>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="author-section section-padding" id="section_3">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <img src="assets/jerbi2.jpg" class="author-image img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                            <h6>Rencontrer l'auteur</h6>
+
+                            <h2 class="mb-4">Ahmed Jerbi</h2>
+
+                            <p>Tel un architecte digital, notre auteur conçoit des univers en ligne où chaque pixel est soigneusement placé pour créer une expérience immersive. Avec une palette de compétences variées, il façonne des sites web qui
+                             captivent et inspirent, alliant esthétique et fonctionnalité pour offrir une véritable expérience utilisateur. Son talent pour l'écriture de code 
+                            est aussi précis que celui d'un écrivain choisissant ses mots, créant ainsi des sites web qui racontent une histoire à travers chaque clic.</p>
+
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="reviews-section section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center mb-5">
+                            <h6>Avis</h6>
+
+                            <h2>Ce qu'en disent les autres...</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="custom-block d-flex flex-wrap">
+                                <div class="custom-block-image-wrap d-flex flex-column">
+                                    <img src="assets/avatar/aziz.jpg" class="img-fluid avatar-image" alt="">
+
+                                    <div class="text-center mt-3">
+                                        <span class="text-white">Aziz</span>
+
+                                        <strong class="d-block text-white">Investisseur</strong>
+                                    </div>
+                                </div>
+
+                                <div class="custom-block-info">
+                                    <div class="reviews-group mb-3">
+                                        <strong>4.5</strong>
+
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star"></i>
+                                    </div>
+
+                                    <p class="mb-0">Bien que ce soit une application en développement, j'ai trouvé l'interface
+                                         utilisateur très conviviale et facile à naviguer. La fonction de recherche est rapide et efficace, et la possibilité de réserver des livres en ligne est un vrai plus pour moi. Je pense que HEClibrary a le potentiel de devenir un outil 
+                                        indispensable.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12 my-5 my-lg-0">
+                            <div class="custom-block d-flex flex-wrap">
+                                <div class="custom-block-image-wrap d-flex flex-column">
+                                    <img src="assets/avatar/houssem.jpg" class="img-fluid avatar-image avatar-image-left" alt="">
+
+                                    <div class="text-center mt-3">
+                                        <span class="text-white">Houssem</span>
+
+                                        <strong class="d-block text-white">Coach</strong>
+                                    </div>
+                                </div>
+
+                                <div class="custom-block-info">
+                                    <div class="reviews-group mb-3">
+                                        <strong>3.5</strong>
+
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star"></i>
+                                        <i class="bi-star"></i>
+                                    </div>
+
+                                    <p class="mb-0">L'application est prometteuse avec son interface utilisateur intuitive. La fonction de réservation simplifie la gestion des lectures recommandées pour mes clients. J'attends avec impatience de voir comment HEClibrary 
+                                        évolue pour répondre aux besoins des lecteurs avides de connaissances.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="custom-block d-flex flex-wrap">
+                                <div class="custom-block-image-wrap d-flex flex-column">
+                                    <img src="assets/avatar/rami.jpg" class="img-fluid avatar-image" alt="">
+
+                                    <div class="text-center mt-3">
+                                        <span class="text-white">Rami</span>
+
+                                        <strong class="d-block text-white">Homme d'affaires</strong>
+                                    </div>
+                                </div>
+
+                                <div class="custom-block-info">
+                                    <div class="reviews-group mb-3">
+                                        <strong>5</strong>
+
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star-fill"></i>
+                                        <i class="bi-star-fill"></i>
+                                    </div>
+
+                                    <p class="mb-0">L'application offre une expérience utilisateur fluide et pratique. La fonction de recherche avancée m'a permis de trouver rapidement les livres pertinents pour mon domaine d'activité. La possibilité de réserver en ligne m'a fait gagner un temps précieux.Je recommande vivement HEClibrary</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="contact-section section-padding" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-5 col-12 mx-auto">
+                            <form class="custom-form ebook-download-form bg-white shadow" action="#" method="post" role="form">
+                                <div class="text-center mb-5">
+                                    <h2 class="mb-1">Obtenez votre livre</h2>
+                                </div>
+
+                                <div class="ebook-download-form-body">
+                                    <div class="input-group mb-4">
+                                        <input type="text" name="ebook-form-name" id="ebook-form-name" class="form-control" aria-label="ebook-form-name" aria-describedby="basic-addon1" placeholder="votre nom" required>
+
+                                        <span class="input-group-text" id="basic-addon1">
+                                            <i class="custom-form-icon bi-person"></i>
+                                        </span>
+                                    </div>
+
+                                    <div class="input-group mb-4">
+                                        <input type="email" name="ebook-email" id="ebook-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="votre@livre.com" aria-label="ebook-form-email" aria-describedby="basic-addon2" required="">
+
+                                        <span class="input-group-text" id="basic-addon2">
+                                            <i class="custom-form-icon bi-envelope"></i>
+                                        </span>
+                                    </div>
+
+                                    <div class="col-lg-8 col-md-10 col-8 mx-auto">
+                                        <button type="submit" class="form-control">Télecharger livre</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <h6 class="mt-5">Dites bonjour et discutez avec nous</h6>
+
+                            <h2 class="mb-4">Contact</h2>
+
+                            <p class="mb-3">
+                                <i class="bi-geo-alt me-2"></i>
+                                Tunis, Happy House
+                            </p>
+
+                            <p class="mb-2">
+                                <a href="tel: 010-020-0340" class="contact-link">
+                                    (+216) 94320750
+                                </a>
+                            </p>
+
+                            <p>
+                                <a href="mailto:info@company.com" class="contact-link">
+                                    info@company.com
+                                </a>
+                            </p>
+
+                            <h6 class="site-footer-title mt-5 mb-3" style="color: #141d54;">Résaux Sociaux</h6>
+
+                            <ul class="social-icon mb-4">
+                                <li class="social-icon-item">
+                                    <a  class="social-icon-link bi-instagram"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a class="social-icon-link bi-twitter"></a>
+                                </li>
+                                
+                                <li class="social-icon-item">
+                                    <a  class="social-icon-link bi-facebook"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a  class="social-icon-link bi-whatsapp"></a>
+                                </li>
+                            </ul>
+
+                            <p class="copyright-text">Copyright © 2048 Happy House company
+                            <br><br> Designed by Jerbi, Rami, Aziz et Houssem</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+       
+
+    </body>

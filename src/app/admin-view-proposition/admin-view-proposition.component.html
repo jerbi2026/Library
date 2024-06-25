@@ -1,0 +1,107 @@
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<app-admin-navbar [image]="connected_manager.image" [name]="connected_manager.nom"></app-admin-navbar>
+<section class="allpage">
+    <h1 class="fancy">Livres trouvés</h1>
+
+<section class="body" *ngIf="livres" >
+
+
+    <section class="carousel">
+      
+      <div class="carousel__container" >
+        
+          <div class="carousel-item" *ngFor="let livre of livres"  (click)="open_livre(livre)">
+            <img
+              class="carousel-item__img"
+             *ngIf="livre.volumeInfo.imageLinks" [src]="livre.volumeInfo.imageLinks.thumbnail" alt="Couverture du livre"
+            />
+            <div class="carousel-item__details">
+              <div class="controls">
+                <span class="fas fa-play-circle"  (click)="open_livre(livre)"></span>
+              </div>
+              <h5 class="carousel-item__details--title">{{ livre.volumeInfo?.title }}</h5>
+            </div>
+          </div>
+        
+        
+       
+        
+      </div>
+    </section>
+ 
+</section>
+
+
+
+  <div class="dialog-box bg-white" id="dialog" *ngIf="livre">
+    <img *ngIf="livre.volumeInfo?.imageLinks" [src]="livre.volumeInfo.imageLinks.thumbnail" alt="cover">
+    <h2 *ngIf="livre.volumeInfo?.title">Titre : {{ livre.volumeInfo.title }}</h2>
+    <p *ngIf="livre.volumeInfo?.authors">Auteur : {{ livre.volumeInfo.authors ? livre.volumeInfo.authors.join(', ') : 'Non spécifié' }}</p>
+    <p *ngIf="livre.volumeInfo?.description" class="dialog_description">Description : {{ livre.volumeInfo.description }}</p>
+    <p *ngIf="livre.volumeInfo?.publishedDate">Date de publication : {{ livre.volumeInfo.publishedDate }}</p>
+    <button class="continue-application" (click)="add_to_catalogue()">
+        <div>
+            <div class="pencil"></div>
+            <div class="folder">
+                <div class="top">
+                    <svg viewBox="0 0 24 27">
+                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                    </svg>
+                </div>
+                <div class="paper"></div>
+            </div>
+        </div>
+        Add to catalogue
+    </button>
+
+    <button aria-label="close" class="x" (click)="close_dialog()">❌</button>
+  </div>
+
+  
+  <div class="dialog-box bg-white" id="dialog_add_livre">
+    <h2>Ajouter un livre</h2>
+    <p>Nombre de copies</p>
+    <div class="textInputWrapper">
+      <input  type="number" class="textInput" name="nb_copie" [(ngModel)]="livre_add.nb_copie">
+  </div>
+  <p>Prix</p>
+    <div class="textInputWrapper">
+      <input  type="number" class="textInput" name="Prix" [(ngModel)]="livre_add.prix">
+  </div>
+  <p>Auteur</p>
+  <select name="auteur" id="auteur" class="form-control" [(ngModel)]="auteur_name">
+    <option value="{{item}}" *ngFor="let item of liste_auteurs">{{item}}</option>
+  </select>
+
+  <div class="dialog_btn">
+    <button class="continue-application" (click)="add_livre()" >
+        <div>
+            <div class="pencil"></div>
+            <div class="folder">
+                <div class="top">
+                    <svg viewBox="0 0 24 27">
+                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                    </svg>
+                </div>
+                <div class="paper"></div>
+            </div>
+        </div>
+        Ajouter livre
+    </button>
+
+  </div>
+
+    <button aria-label="close" class="x" (click)="close_dialog_add()">❌</button>
+  </div>
+
+  <div class="dialog-box bg-white" id="dialog_message">
+    <h2>{{title}}</h2>
+    <p>{{message}}</p>
+    <button aria-label="close" class="x" (click)="close_dialog_message()">❌</button>
+
+</div>
+  
+  
+

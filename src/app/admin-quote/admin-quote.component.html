@@ -1,0 +1,21 @@
+<app-admin-navbar
+[image]="connected_manager.image"
+[name]="connected_manager.nom"></app-admin-navbar>
+
+<body>
+  
+    <div class="about-section" style=" background: url({{livre.image}}) no-repeat left">
+        <div class="inner-container">
+          <h1>Quote</h1>
+          <p class="text">
+"{{quote.quote}}"</p>
+
+          <div class="skills">
+            
+            <span >{{auteur.nom}} {{auteur.prenom}}</span>
+            <span>{{livre.titre}}</span>
+            <span >{{livre.genre}}</span>
+          </div>
+        </div>
+      </div>
+</body>
